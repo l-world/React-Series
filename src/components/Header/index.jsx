@@ -12,9 +12,9 @@ export default () => {
             <li>
                 <Link href="/movies">电影页</Link>
             </li>
-            <li>
+            {/* <li>
                 <Link href="/movies/[id]" as={`/movies/${id}`}>电影详情页</Link>
-            </li>
+            </li> */}
             <li>关于</li>
         </ul>
     )
