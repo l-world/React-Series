@@ -26,7 +26,7 @@ export default ({ movies, page, total, limit }) => {
                 total={total}
                 limit={limit}
                 onPageChange={newPage => {
-                    router.push(`/movies`, `/movies?page=${newPage}`);
+                    router.push(`/movies`, `/movies?page=${newPage}`, {shallow});
                 }}
             />
         </div>
