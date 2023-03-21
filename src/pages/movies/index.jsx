@@ -1,22 +1,22 @@
 import Head from "next/head";
 import { getMovies } from "../../services/movieService";
-import Pager from '../../components/Pager';
+import Pager from "../../components/Pager";
 import { useRouter } from "next/router";
 
 export default ({ movies, page, total, limit }) => {
-    // console.log(' movies render');
+    console.log("render");
     const router = useRouter();
     return (
         <div>
             <Head>
-                <title>电影</title>
+                <title>电影页</title>
             </Head>
-            <h1>电影列表</h1>
+            <h1>电影页</h1>
             <ul>
-                {movies.map((m, i) => (
+                {movies.map(m => (
                     <li key={m._id}>
                         <a href={`/movies/${m._id}`}>
-                            <span>{i + 1}、{m.name}</span>
+                            <span>{m.name}</span>
                         </a>
                     </li>
                 ))}
@@ -26,9 +26,8 @@ export default ({ movies, page, total, limit }) => {
                 total={total}
                 limit={limit}
                 onPageChange={newPage => {
-                    router.push(`/movies`, `/movies?page=${newPage}`);
+                    router.push(`/movies`, `/movies?page=${newPage}`, { shallow: true });
                 }}
-
             />
         </div>
     )
@@ -48,9 +47,13 @@ export default ({ movies, page, total, limit }) => {
     };
 } */
 
+
+// 每次请求到达后都会运行
+// 仅在服务器端运行
+// req, res, query
 export async function getServerSideProps({ query }) {
     const page = +query.page || 1;
-    console.log('getServerSideProps');
+    console.log("getServerSideProps");
     const resp = await getMovies(page, 10);
     return {
         props: {
@@ -59,5 +62,5 @@ export async function getServerSideProps({ query }) {
             total: resp.count,
             limit: 10
         }
-    }
+    };
 }
