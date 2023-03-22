@@ -14,7 +14,7 @@ interface Iprops {
 const BoardCmp: React.FC<Iprops> = (props) => {
     // 类型断言 同 (isGameOver = props.isGameOver as boolean)作用一样
     // 因为isGameOver不是非必填，所以ts会认为他的类型是boolean或者undefined，为了告诉ts isGameOve并非undefined,需要断言
-    // props.isGameOver! 是简写方式
+    // props.isGameOver! 是简写方式,表示非空断言
     const isGameOver = props.isGameOver!;
 
     const list = props.chesses.map( (type,i) => <ChessCmp 
