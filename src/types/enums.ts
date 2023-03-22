@@ -4,3 +4,10 @@ export enum ChessType {
     red,
     black
 }
+
+export enum GameStatus {
+    gaming, // 游戏进行中
+    redWin, //红方胜出
+    blackWin, //黑方胜出
+    dogfall // 平局
+}

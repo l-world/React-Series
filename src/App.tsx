@@ -1,29 +1,11 @@
 import React from 'react';
-import BoardCmp from './components/BoardCmp';
-import { ChessType } from './types/enums';
-
-const chesses = [
-    ChessType.black,
-    ChessType.red,
-    ChessType.none,
-    ChessType.black,
-    ChessType.red,
-    ChessType.black,
-    ChessType.none,
-    ChessType.black,
-    ChessType.red,
-]
+import GameCmp from './components/GameCmp';
 
 export class App extends React.Component<{}> {
     render() {
         return (
             <div>
-                <BoardCmp 
-                    chesses={chesses}
-                    onClick={ (i) => {
-                        console.log(i)
-                    } }
-                />
+                <GameCmp />
             </div>
         )
     }
