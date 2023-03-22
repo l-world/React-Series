@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import { ChessType, GameStatus } from "../../types/enums";
 import BoardCmp from "../BoardCmp";
 import './index.css'
 
 // 定义 state 的约束
 interface IState {
-    chesses: ChessType[];
-    gameStatus:GameStatus,
+    chesses: ChessType[]
+    gameStatus:GameStatus
     nextChess: ChessType.red | ChessType.black
 }
 
-export class GameCmp extends Component<{},IState> {
+class GameCmp extends React.Component<{},IState> {
 
     state:IState = {
         chesses:[],
@@ -76,7 +76,7 @@ export class GameCmp extends Component<{},IState> {
         }
             // 2.判断是否平局
         if(!chesses.includes(ChessType.none)){
-            return GameStatus.dogfall;
+            return GameStatus.equal;
         }
         // 3.游戏正在进行
         return GameStatus.gaming;

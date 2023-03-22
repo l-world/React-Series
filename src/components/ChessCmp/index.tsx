@@ -4,7 +4,7 @@ import './index.css';
 
 // 使用接口定义 props 的类型约束,props有属性，1.type:棋子的类型，由ChessType约束，2. onClick：函数
 interface Iprops {
-    type: ChessType,
+    type: ChessType
     onClick?: () => void
 }
 

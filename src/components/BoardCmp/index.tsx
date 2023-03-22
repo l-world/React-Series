@@ -5,8 +5,8 @@ import './index.css'
 
 // 使用接口约束 props 的属性
 interface Iprops {
-    chesses: ChessType[],
-    isGameOver?: boolean,
+    chesses: ChessType[]
+    isGameOver?: boolean
     onClick?: (index: number) => void
 }
 
