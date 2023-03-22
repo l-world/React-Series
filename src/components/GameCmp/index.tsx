@@ -1,6 +1,7 @@
 import React from "react";
 import { ChessType, GameStatus } from "../../types/enums";
 import BoardCmp from "../BoardCmp";
+import GameStatusCmp from "../GameStatusCmp";
 import './index.css'
 
 // 定义 state 的约束
@@ -84,6 +85,10 @@ class GameCmp extends React.Component<{}, IState> {
         return (
             <div className="game">
                 <h1>三连棋游戏</h1>
+                <GameStatusCmp 
+                    status={this.state.gameStatus}
+                    next={this.state.nextChess}
+                />
                 <BoardCmp
                     chesses={this.state.chesses}
                     isGameOver={this.state.gameStatus !== GameStatus.gaming}
